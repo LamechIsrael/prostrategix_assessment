@@ -10,7 +10,7 @@ export default async function fetchForecast(
       {
         method: "GET",
         headers: {
-          key: `${process.env.key}`,
+          key: "55cc8d2a07d04940b9920742242310",
         },
       }
     );

@@ -13,10 +13,14 @@ export default function CityInfo({
 }: CityData) {
   return (
     <div>
-      <img
-        src={icon}
-        alt="An image displaying whether the sky is cloudy, sunny, or rainy"
-      />
+      {icon ? (
+        <img
+          src={icon}
+          alt="An image displaying whether the sky is cloudy, sunny, or rainy"
+        />
+      ) : (
+        <></>
+      )}
       <h1>
         {temperature} {unit}
       </h1>

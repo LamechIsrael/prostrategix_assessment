@@ -7,6 +7,7 @@ export default function cleanForecastData(
   const forecastProjection = emptyForecastProjection;
 
   forecastProjection.location = `${forecast.location.name}, ${forecast.location.region}`;
+
   forecastProjection.current.temp_c = forecast.current.temp_c;
   forecastProjection.current.temp_f = forecast.current.temp_f;
   forecastProjection.current.condition = forecast.current.condition.text;
@@ -27,7 +28,7 @@ export default function cleanForecastData(
       icon: data[i].day.condition.icon,
     } as FutureForecast;
 
-    forecastProjection.futureForecast.push(futureForecast);
+    (forecastProjection.futureForecast as any)[day] = futureForecast;
   }
 
   return forecastProjection;
