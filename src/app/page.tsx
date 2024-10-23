@@ -37,7 +37,8 @@ export default function Home() {
       <div className={"cityForm"}>
         <CityForm submitFormHandler={submitForm} />
       </div>
-      <div className="forecast">
+
+      <div className="forecastData">
         {forecastData ? (
           <TotalCityComponent
             temperature={
@@ -49,11 +50,16 @@ export default function Home() {
             unit={tempUnit as "F" | "C"}
           />
         ) : (
-          <TotalCityComponent
-            temperature={0}
-            forecast={emptyForecastProjection}
-            unit={"F"}
+          <img
+            src="//cdn.weatherapi.com/weather/64x64/day/113.png"
+            width={500}
+            height={300}
           />
+          // <TotalCityComponent
+          //   temperature={0}
+          //   forecast={emptyForecastProjection}
+          //   unit={"F"}
+          // />
         )}
       </div>
     </div>
