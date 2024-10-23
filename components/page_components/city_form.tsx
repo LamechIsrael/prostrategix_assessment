@@ -15,9 +15,9 @@ export default function CityForm({ submitFormHandler }: SubmitFormProps) {
           share the same name. Like Sacramento.)
         </h4>
         <input type="text" name="zipcode" />
-        <input type="radio" name="tempf" id="tempf" />
+        <input type="radio" name="temp" id="tempf" value={"F"} />
         <label htmlFor="tempf">F</label>
-        <input type="radio" name="tempf" id="tempc" />
+        <input type="radio" name="temp" id="tempc" value={"C"} />
         <label htmlFor="tempc">C</label>
         <button type="submit">Enter</button>
       </form>
