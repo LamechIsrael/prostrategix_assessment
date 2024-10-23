@@ -1,0 +1,17 @@
+export default function CityForm() {
+  return (
+    <div>
+      <h1>Anytime Weather</h1>
+      <h2>Enter Zipcode Below</h2>
+      <h4>
+        (A zipcode is more accurate, because some cities in different states
+        share the same name. Like Sacramento.)
+      </h4>
+      <input type="text" name="zipcode" />
+      <input type="radio" name="tempf" id="tempf" />
+      <label htmlFor="tempf">F</label>
+      <input type="radio" name="tempf" id="tempc" />
+      <label htmlFor="tempc">C</label>
+    </div>
+  );
+}
