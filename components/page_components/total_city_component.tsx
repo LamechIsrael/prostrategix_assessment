@@ -13,14 +13,16 @@ export default function TotalCityComponent({
   unit,
 }: CityData) {
   return (
-    <div>
+    <div className="currentCityForecast">
       <CityInfo
         temperature={temperature}
         unit={unit}
         location={forecast.location}
         icon={forecast.current.icon}
       />
-      <FiveDayForcast forecast={forecast.futureForecast} unit={unit} />
+      <div className="fiveDayForecastGroup">
+        <FiveDayForcast forecast={forecast.futureForecast} unit={unit} />
+      </div>
     </div>
   );
 }

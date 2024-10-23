@@ -8,7 +8,7 @@ export default function DailyForecastSummary({
   unit,
 }: ForecastSummaryProps) {
   return (
-    <div>
+    <div className="fiveDayForecastItem">
       {forecastDay.icon ? <img src={forecastDay.icon} alt="" /> : <></>}
       {forecastDay.date ? <div>Date: {forecastDay.date}</div> : <></>}
       {forecastDay.avgtemp_c || forecastDay.avgtemp_f ? (
@@ -22,7 +22,6 @@ export default function DailyForecastSummary({
       ) : (
         <></>
       )}
-      ( )
     </div>
   );
 }

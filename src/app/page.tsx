@@ -33,25 +33,29 @@ export default function Home() {
   }
 
   return (
-    <>
-      <CityForm submitFormHandler={submitForm} />
-      {forecastData ? (
-        <TotalCityComponent
-          temperature={
-            tempUnit === "F"
-              ? forecastData?.current.temp_f
-              : forecastData.current.temp_c
-          }
-          forecast={forecastData}
-          unit={tempUnit as "F" | "C"}
-        />
-      ) : (
-        <TotalCityComponent
-          temperature={0}
-          forecast={emptyForecastProjection}
-          unit={"F"}
-        />
-      )}
-    </>
+    <div className="homePage">
+      <div className={"cityForm"}>
+        <CityForm submitFormHandler={submitForm} />
+      </div>
+      <div className="forecast">
+        {forecastData ? (
+          <TotalCityComponent
+            temperature={
+              tempUnit === "F"
+                ? forecastData?.current.temp_f
+                : forecastData.current.temp_c
+            }
+            forecast={forecastData}
+            unit={tempUnit as "F" | "C"}
+          />
+        ) : (
+          <TotalCityComponent
+            temperature={0}
+            forecast={emptyForecastProjection}
+            unit={"F"}
+          />
+        )}
+      </div>
+    </div>
   );
 }
