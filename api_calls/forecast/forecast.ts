@@ -4,25 +4,23 @@ export default async function fetchForecast(
 ) {
   let response;
 
-  if (typeof numberOfDays === "undefined") {
-    response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?q=${zipcode}`,
-      {
-        method: "GET",
-        headers: {
-          key: `${process.env.key as string}`,
-        },
-      }
-    );
-  } else {
-    console.log("Get forecast");
-    numberOfDays = 1;
+  if (numberOfDays) {
     response = await fetch(
       `http://api.weatherapi.com/v1/forecast.json?q=${zipcode}&days=${numberOfDays}`,
       {
         method: "GET",
         headers: {
           key: `${process.env.key}`,
+        },
+      }
+    );
+  } else {
+    response = await fetch(
+      `http://api.weatherapi.com/v1/forecast.json?q=${zipcode}`,
+      {
+        method: "GET",
+        headers: {
+          key: `${process.env.key as string}`,
         },
       }
     );

@@ -1,10 +1,16 @@
+import { emptyForecastProjection } from "./empty_variables/forecastProjection";
+
 export default function cleanForecastData(
   forecast: any,
   numberOfDays?: number
 ) {
-  const forecastProjection = {} as Forecast;
-  forecastProjection.location = `${forecast.name}, ${forecast.region}`;
-  forecastProjection.current = forecast.current;
+  const forecastProjection = emptyForecastProjection;
+
+  forecastProjection.location = `${forecast.location.name}, ${forecast.location.region}`;
+  forecastProjection.current.temp_c = forecast.current.temp_c;
+  forecastProjection.current.temp_f = forecast.current.temp_f;
+  forecastProjection.current.condition = forecast.current.condition.text;
+  forecastProjection.current.icon = forecast.current.condition.icon;
 
   const data = forecast.forecast.forecastday;
 
@@ -20,8 +26,6 @@ export default function cleanForecastData(
       condition: data[i].day.condition.text,
       icon: data[i].day.condition.icon,
     } as FutureForecast;
-
-    console.log(futureForecast);
 
     forecastProjection.futureForecast.push(futureForecast);
   }
